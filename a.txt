@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+void function(int tab[], int a, int b, int c)
+{
+    for(int i=0; i<a;i++) 
+    {
+        tab[i] = rand() % (c - b + 1) + b;
+    }
+}
+int main() {
+    int a;
+    int b;
+    int c;
+    cout<<"podaj wielkosc tabeli";
+    cin>>a;
+    cout<<"podaj najmniejsza liczbe w tabeli";
+    cin>>b;
+    cout<<"podaj najwieka liczbe w tabeli";
+    cin>>c;
+    int tab[a];
+    srand(time(NULL));
+    function(tab, a, b, c);
+    cout<<"tab= ";
+    for (int i = 0; i < a; i++) {
+        cout<<tab[i]<<",";
+    }
+    return 0;
+}
