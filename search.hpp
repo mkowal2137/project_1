@@ -1,0 +1,1 @@
+int* generate_table(int table_size);
