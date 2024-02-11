@@ -63,12 +63,7 @@ void linear_search_with_sentry(int table_size, int * table, int searched){
 }
 
 int * cocktail_sort(int table_size, int * table){
- /*
- idzie od lewej do prawej i zbiera największą wartość
- i i++ i+2 i+3
- następnie idzie od prawej do lewej i zbiera najmniejszą wartość
- table_size -1 -2 -3
- */ 
+
   int bottom =0;
   int top = table_size -1;
   bool change = true;
@@ -92,6 +87,19 @@ int * cocktail_sort(int table_size, int * table){
       }
     }
     bottom = bottom +1;
+  }
+  return table;
+}
+
+int * insert_sort(int table_size, int * table){
+  for(int i=1;i < table_size;i++){
+    int inserted_element = table[i];
+    int j = i-1;
+    while(j>=0 && table[j]> inserted_element){
+      table[j+1]= table[j];
+      j= j-1;
+    }
+      table[j+1] = inserted_element;
   }
   return table;
 }

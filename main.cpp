@@ -32,16 +32,17 @@ int main() {
      cin >> choice;
      switch(choice){
        case 1:
-          bubble_sort(table_size, generated);
-       break;
+        bubble_sort(table_size, generated);
+        break;
        case 2:
-         cocktail_sort(table_size,generated);
+        cocktail_sort(table_size,generated);
         break;
        case 3:
         break;
        case 4:
         break;
        case 5:
+        insert_sort(table_size, generated);
         break;
        default:  
          cout << "niepoprawna liczba";
@@ -83,4 +84,3 @@ int main() {
     return 0;
   }
 }
-  
