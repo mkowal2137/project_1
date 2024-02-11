@@ -40,6 +40,7 @@ int main() {
        case 3:
         break;
        case 4:
+         quick_sort(generated, 0, table_size-1);
         break;
        case 5:
         insert_sort(table_size, generated);
@@ -73,8 +74,10 @@ int main() {
           linear_search_with_sentry(table_size,generated,searched);
           break;
         case 3:
+          jump_search(table_size, generated, searched);
           break;
         case 4:
+          binear_search(table_size,generated,searched);
           break;
         case 5:
           break;

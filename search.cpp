@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int * generate_table(int table_size) {
@@ -27,12 +28,6 @@ int * bubble_sort(int table_size, int * table){
 }
  
 void linear_search(int table_size, int * table,int searched){
-    /* funkcja musi dostać liczbę wyszukiwaną w tablicy a następnie powinna 
-        przejść przez tablicę i porównywać liczbę z danymi w tablicy
-        po znalezieniu daynch powinna wypisać miejsce w tablicy lub napisać że nie ma
-        takiej liczby w tablicy
-*/
-  
 
   for(int i=0; i < table_size;i++){
     if(searched == table[i]){
@@ -44,9 +39,6 @@ void linear_search(int table_size, int * table,int searched){
 
 void linear_search_with_sentry(int table_size, int * table, int searched){
   int* array= new int[table_size +1];
-  /*  przenieść dane z table do array
-  for jest tu po to żeby przechodził po pojedzyńczych kratkach table i wstawiał je do array
-   */ 
   for(int i=0;i < table_size;i++){
     array[i] = table[i];
   }
@@ -102,4 +94,83 @@ int * insert_sort(int table_size, int * table){
       table[j+1] = inserted_element;
   }
   return table;
+}
+
+int binear_search(int table_size, int * table, int searched){
+  insert_sort(table_size, table);
+  int left = 0;
+  int right= table_size-1;
+  int index;
+  while(left<=right){
+    index = floor((left + right)/2);
+    if (table[index] < searched){
+      left = index +1;
+    }
+    else if(table[index]> searched){
+      right = index -1;
+    }
+    else{
+      cout<<"index jest równy: "<<index;
+      return index;
+    }
+  }
+  return index;
+}
+
+
+void quick_sort(int* table, int leftIndex, int rightIndex){
+    int i = leftIndex;
+    int j = rightIndex;
+    int pivot = table[leftIndex];
+
+    while (i <= j)
+    {
+        while (table[i] < pivot)
+        {
+          i++;
+        }
+
+        while (table[j] > pivot)
+        {
+          j--;
+        }
+
+        if (i <= j)
+        {
+          int temp = table[i];
+            table[i] = table[j];
+            table[j] = temp;
+          i++;
+          j--;
+        }
+    }
+
+    if (leftIndex < j)
+        quick_sort(table, leftIndex, j);
+
+    if (i < rightIndex)
+        quick_sort(table, i, rightIndex);
+}
+
+void jump_search(int table_size, int* table, int searched) {
+  int block = (int)(sqrt(table_size));
+  int index = 0;
+  while (table[min(block, table_size) - 1] < searched) {
+    index = block;
+    block += (int)(sqrt(table_size));
+    if (index >= table_size)
+      return;
+  }
+  while (table[index] < searched) {
+    index++;
+    if (index == min(block, table_size)) {
+      return;
+    }
+  }
+  if (table[index] == searched){
+    cout << "Szukana liczna jest pod indexem:" << index;
+    return;
+  }
+  cout << "nie znaleziono";
+  return ;
 }
