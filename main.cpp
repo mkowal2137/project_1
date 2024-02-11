@@ -35,6 +35,7 @@ int main() {
           bubble_sort(table_size, generated);
        break;
        case 2:
+         cocktail_sort(table_size,generated);
         break;
        case 3:
         break;
@@ -47,6 +48,7 @@ int main() {
       }
     cout << "\nposortowana tablica: \n";
     printTable(table_size, generated);
+     return 0;
   }
 
   
@@ -78,6 +80,7 @@ int main() {
         default:  
           cout << "niepoprawna liczba";
      }
+    return 0;
   }
 }
   

@@ -61,3 +61,37 @@ void linear_search_with_sentry(int table_size, int * table, int searched){
   }
       cout << "dotarto do wartownika\n";
 }
+
+int * cocktail_sort(int table_size, int * table){
+ /*
+ idzie od lewej do prawej i zbiera największą wartość
+ i i++ i+2 i+3
+ następnie idzie od prawej do lewej i zbiera najmniejszą wartość
+ table_size -1 -2 -3
+ */ 
+  int bottom =0;
+  int top = table_size -1;
+  bool change = true;
+  while(change == true){
+    change = false;
+    for(int i = bottom;i<top;i++){
+      if(table[i] > table[i+1]){
+        int temp = table[i];
+        table[i] = table[i+1];
+        table[i+1] = temp;
+        change = true;
+      }
+    }
+    top = top -1;
+    for(int i = top;i> bottom;i--){
+      if(table[i] < table[i-1]){
+        int temp = table[i];
+        table[i] = table[i-1];
+        table[i-1] = temp;
+        change = true;
+      }
+    }
+    bottom = bottom +1;
+  }
+  return table;
+}
