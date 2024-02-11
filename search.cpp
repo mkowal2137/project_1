@@ -41,3 +41,23 @@ void linear_search(int table_size, int * table,int searched){
     }}
       cout << "liczba nieznaleziona\n";
 }
+
+void linear_search_with_sentry(int table_size, int * table, int searched){
+  int* array= new int[table_size +1];
+  /*  przenieść dane z table do array
+  for jest tu po to żeby przechodził po pojedzyńczych kratkach table i wstawiał je do array
+   */ 
+  for(int i=0;i < table_size;i++){
+    array[i] = table[i];
+  }
+  array[table_size]= -1;
+  int i=0;
+
+  while(array[i]!=-1){
+    if(searched == array[i]){
+      cout <<"liczba "<<searched<<" znajduje sie pod indeksem "<< i <<"\n";
+    }
+     i++;
+  }
+      cout << "dotarto do wartownika\n";
+}

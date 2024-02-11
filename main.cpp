@@ -67,6 +67,7 @@ int main() {
           linear_search(table_size,generated,searched);
           break;
         case 2:
+          linear_search_with_sentry(table_size,generated,searched);
           break;
         case 3:
           break;
