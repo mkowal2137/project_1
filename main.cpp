@@ -22,7 +22,7 @@ int main() {
   int choice;
   cin >> choice;
    if(choice == 1){
-     cout << "prosze wpisać cyfrę odpowiadającą algorymowi\n";
+     cout << "prosze wpisać cyfrę odpowiadającą sortowaniu\n";
      cout << "1 dla bąbelkowego\n";
      cout << "2 dla koktajlowe\n";
      cout << "3 dla przez scalanie\n";
@@ -44,16 +44,39 @@ int main() {
         break;
        default:  
          cout << "niepoprawna liczba";
-     }
-   }
-  
-// wybór 1 lub 2 gdzie 1 to sortowania a 2 to wyszukiwania
-// wybór od 1 do 4 gdzie każda cyfra oznacza inne wyszukiwanie/sortowanie
-  
-  
- 
-  cout << "\nposortowana tablica: \n";
-  printTable(table_size, generated);
-  
-}
+      }
+    cout << "\nposortowana tablica: \n";
+    printTable(table_size, generated);
+  }
 
+  
+  if(choice == 2){
+    cout << "prosze wpisać cyfrę odpowiadającą wyszukiwaniu\n";
+    cout << "1 dla liniowe\n";
+    cout << "2 dla liniowe z wartownikiem\n";
+    cout << "3 dla skokowe\n";
+    cout << "4 dla binarne\n";
+    cout << "5 dla interpolacyjne\n";
+
+    cin >> choice;
+    cout << "prosze podac wyszukiwana liczbe: ";
+    int searched;
+    cin >> searched;
+      switch(choice){
+        case 1:
+          linear_search(table_size,generated,searched);
+          break;
+        case 2:
+          break;
+        case 3:
+          break;
+        case 4:
+          break;
+        case 5:
+          break;
+        default:  
+          cout << "niepoprawna liczba";
+     }
+  }
+}
+  
